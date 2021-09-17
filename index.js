@@ -1,16 +1,19 @@
 // let's play a coding game? FunCoding!
 
 // input (welcome)
+// using Chalk
+const chalk = require("chalk");
+var Chalk = require("chalk")
 var readlineSync=require("readline-sync");
-var userInput=readlineSync.question("What's Your Sweet name? \n");
+var userInput=readlineSync.question(Chalk.green("What's Your Sweet name? \n"));
 var score =0;
-console.log("hi" + " " + userInput + " " + "Welcome to FunCoding! ");
-var userANswer=readlineSync.question("Do you like coding? \n yes or no");
+console.log(chalk.yellow("hi" + " " + chalk.underline.green(userInput) + " " + "Welcome to FunCoding! "));
+var userANswer=readlineSync.question(chalk.cyan("Do you like coding? \n yes or no \n"));
 var Answer1 ="yes";
 if(userANswer.toUpperCase() == Answer1.toUpperCase())
 {
-    console.log("Hello Programmer!");
-    console.log("let's start with the  First Question")
+    console.log(chalk.bgRed("Hello Programmer!"));
+    console.log(chalk.magenta("let's start with the  First Question"))
 
 //function 
 function funGame(question,answer){
@@ -18,16 +21,16 @@ function funGame(question,answer){
     var userAnswer=readlineSync.question(question);
     if(userAnswer.toUpperCase()==answer.toUpperCase())
     {
-        console.log("Great!");
+        console.log(chalk.greenBright("Great!"));
         score+=1;
 
     }
     else
     {
-        console.log("I'm sorry you were wrong...");
+        console.log(chalk.redBright("Wrong!!!..."));
         score-=1;
     }
-    console.log("current score " + score)
+    console.log(chalk.bgRed("your current score " + score))
 }
 // input in the form of array and object
 var Questions=[{
@@ -75,28 +78,28 @@ var Questions=[{
 // looping the array
 for(var i=0;i<Questions.length;i++){
   var currentQuestion = Questions[i];
-  funGame(currentQuestion.question, currentQuestion.answer);
+  funGame(chalk.blue(currentQuestion.question), currentQuestion.answer);
 }
 console.log("your total score " + score)
 if(score === 8)
 {
-    console.log("you're are genius");
+    console.log(chalk.bold.italic.gray("you're are genius"));
 }
 else if(score===9)
 {
-    console.log("you're are marvellous")
+    console.log(chalk.bold.italic.red("you're are marvellous"))
 }
 else if(score ===10)
 {
-    console.log("you're are Pro");
+    console.log(chalk.bold.italic.yellow("you're are Pro"));
 }
 else
 {
-    console.log("Better luck next time");
+    console.log(chalk.bold.italic.underline.red("Better luck next time"));
 }
-console.log("thankyou " + userInput + " "+"for playing FunCoding!!!!")
+console.log(chalk.bold.italic.green("thankyou " + userInput + " "+"for playing FunCoding!!!!"))
 }
 else{
-    console.log(" one thing to keep in mind when trying to decide if coding is right for you is pretty simple: Coding is for everyone. So if you're ready to learn some new skills and take on a uniquely fun, challenging, and rewarding line of work, coding is most definitely right for you. so please learn the basics and try again. ( ͡ ͜ʖᵔ)");
+    console.log(chalk.bold.bgCyan(" one thing to keep in mind when trying to decide if coding is right for you is pretty simple: Coding is for everyone. So if you're ready to learn some new skills and take on a uniquely fun, challenging, and rewarding line of work, coding is most definitely right for you. so please learn the basics and try again. ( ͡ ͜ʖᵔ)"));
 }
 
