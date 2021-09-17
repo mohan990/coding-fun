@@ -78,7 +78,7 @@ var Questions=[{
 // looping the array
 for(var i=0;i<Questions.length;i++){
   var currentQuestion = Questions[i];
-  funGame(chalk.blue(currentQuestion.question), currentQuestion.answer);
+  funGame(chalk.blue(currentQuestion.question), currentQuestion.answer.toUpperCase());
 }
 console.log("your total score " + score)
 if(score === 8)
